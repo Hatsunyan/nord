@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="style.css" type="text/css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>Title</title>
+</head>
+<body>
+    <div class="wrapper">
+        <input type="button" value="1">
+        <input type="button" value="2">
+        <input type="button" value="3">
+    </div>
+<script>
+    var $buttons = $('input[type=button]');
+    $buttons.on('click',function()
+    {
+        var first = $buttons[0].value;
+        for(var i = 0; i < $buttons.length; i++)
+        {
+            if(i === $buttons.length - 1)
+            {
+                $buttons[$buttons.length-1].value = first;
+                break
+            }
+            $buttons[i].value = $buttons[i+1].value;
+        }
+    });
+</script>
+</body>
+</html>
